@@ -20,6 +20,7 @@ function Home() {
                     </div>
                 </div>
             </nav>
+            <div class="hero-full-container background-image-container white-text-container"></div>
         </>
     );
 }
