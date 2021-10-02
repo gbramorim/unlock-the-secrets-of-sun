@@ -4,8 +4,11 @@ function Sun() {
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-
-    return `${date}/${month}/${year}`;
+    let hour = `${newDate.getHours()}:${newDate.getMinutes()}`;
+    console.log(hour)
+      
+      
+    return `${hour} - ${date}/${month}/${year}`;
   }
 
   return (
