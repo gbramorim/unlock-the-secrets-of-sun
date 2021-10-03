@@ -1,10 +1,11 @@
 import React from "react";
 import '../css/Dropdown.css'
 import api from "../../services/api";
-import { CircleSlider } from "react-circle-slider";
 
 const Portfolio = () => {
   let periodo = ""
+  let ano
+  let date
   let latitude
   let longitude
   let value = 1
@@ -15,7 +16,8 @@ const Portfolio = () => {
     var today = new Date();
     var month = today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
     var day = today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
-    var date = "" + today.getFullYear() + month + day;
+    ano = today.getFullYear()
+    date = "" + ano + month + day;
     console.log(date)
     navigator.geolocation.getCurrentPosition(function(position) {
       latitude = position.coords.latitude
@@ -25,8 +27,18 @@ const Portfolio = () => {
     });
   }
 
-  function handleChange() {
-  
+  function getValores() {
+    api.get('/disponibilidadesol', {
+      params: {
+        latitude: latitude,
+        longitude: longitude,
+        periodo: periodo,
+        end: date,
+        mes_desejado: '05',
+      }
+    }).then((response) => {
+      console.log(response)
+    })
   }
 
   return (
@@ -40,8 +52,8 @@ const Portfolio = () => {
         <li onClick={() => setPeriodo("mensal")}><a>Mensal</a></li>
         <li onClick={() => setPeriodo("tudo")}><a>Tudo</a></li>
       </ul>
+      <button onClick={() => getValores()}class="pure-material-button-contained">Submit</button>
       </div>
-      <CircleSlider value={value} onChange={() => handleChange()} />
     </body>
     </>
   );
