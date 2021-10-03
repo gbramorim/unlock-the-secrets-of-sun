@@ -6,6 +6,7 @@ import About from "./components/Pages/About";
 import Portfolio from "./components/Pages/Portfolio";
 import Blog from "./components/Pages/Blog";
 import Contact from "./components/Pages/Contact";
+import api from "./services/api";
 
 function App() {
   return (
