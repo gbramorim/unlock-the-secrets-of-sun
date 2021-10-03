@@ -13,11 +13,6 @@ const Portfolio = () => {
   function setPeriodo(param) {
     periodo = param;
     console.log(periodo);
-    if (periodo !== "semanal" && periodo !== "tudo") {
-      setRenderPartial(true);
-    } else {
-      setRenderPartial(false);
-    }
     var today = new Date();
     var month = today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
     var day = today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
