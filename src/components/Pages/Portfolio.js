@@ -5,7 +5,7 @@ import { CircleSlider } from "react-circle-slider";
 import { Line } from "react-chartjs-2";
 
 const LineChart = (chave, valor) => {
-  console.log("Logando chave", chave)
+  console.log("Logando chave", chave);
   return (
     <div>
       <Line
@@ -22,7 +22,7 @@ const LineChart = (chave, valor) => {
         height={400}
         width={300}
         options={{
-          borderColor: 'yellow',
+          borderColor: "yellow",
           tension: 0,
           maintainAspectRatio: false,
           bezierCurve: false,
@@ -42,52 +42,56 @@ const LineChart = (chave, valor) => {
 };
 
 const Portfolio = () => {
-  let periodo = ""
-  let ano
-  let date
-  let latitude
-  let longitude
-  let value = 1
-  let keys = []
-  let values = []
-  const [chave, setChave] = useState([])
-  const [valor, setValor] = useState([])
+  let periodo = "";
+  let ano;
+  let date;
+  let latitude;
+  let longitude;
+  let value = 1;
+  let keys = [];
+  let values = [];
+  const [chave, setChave] = useState([]);
+  const [valor, setValor] = useState([]);
 
   function setPeriodo(param) {
     periodo = param;
     // console.log(periodo);
     var today = new Date();
-    var month = today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
-    var day = today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
-    ano = today.getFullYear()
+    var month =
+      today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
+    var day =
+      today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
+    ano = today.getFullYear();
     date = "" + ano + month + day;
     // console.log(date)
-    navigator.geolocation.getCurrentPosition(function(position) {
-      latitude = position.coords.latitude
-      longitude = position.coords.longitude
+    navigator.geolocation.getCurrentPosition(function (position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
       // console.log("Latitude is :", position.coords.latitude);
       // console.log("Longitude is :", position.coords.longitude);
     });
   }
 
   function getValores() {
-    api.get('/disponibilidadesol', {
-      params: {
-        latitude: latitude,
-        longitude: longitude,
-        periodo: periodo,
-        end: date,
-        mes_desejado: '05',
-      }
-    }).then((response) => {
-      // console.log(response)
-      keys = Object.keys(response.data)
-      values = Object.values(response.data)
-      setValor(values)
-      setChave(keys)
-      console.log(chave)
-      console.log(valor)
-    })
+    api
+      .get("/disponibilidadesol", {
+        params: {
+          latitude: latitude,
+          longitude: longitude,
+          periodo: periodo,
+          end: date,
+          mes_desejado: "05",
+        },
+      })
+      .then((response) => {
+        // console.log(response)
+        keys = Object.keys(response.data);
+        values = Object.values(response.data);
+        setValor(values);
+        setChave(keys);
+        console.log(chave);
+        console.log(valor);
+      });
   }
 
   return (
@@ -107,11 +111,16 @@ const Portfolio = () => {
           <a>Tudo</a>
         </li>
       </ul>
-      <button onClick={() => getValores()}class="pure-material-button-contained">Submit</button>
+      <button
+        onClick={() => getValores()}
+        class="pure-material-button-contained"
+      >
+        Submit
+      </button>
       {/* {<CircleSlider value={value} />} */}
 
       <LineChart chave={chave} valor={valor} />
-      </div>
+    </div>
   );
 };
 
