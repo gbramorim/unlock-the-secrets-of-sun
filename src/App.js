@@ -6,18 +6,18 @@ import About from "./components/Pages/About";
 import Portfolio from "./components/Pages/Portfolio";
 import Blog from "./components/Pages/Blog";
 import Contact from "./components/Pages/Contact";
+import api from "./services/api";
 
 function App() {
   return (
     <>
       <Router>
         <HamburgerMenu />
-
         <div className="pages">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/statistics" component={Portfolio} />
             <Route path="/blog" component={Blog} />
             <Route path="/contact" component={Contact} />
           </Switch>

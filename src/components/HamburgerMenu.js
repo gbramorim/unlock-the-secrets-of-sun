@@ -134,7 +134,7 @@ function HamburgerMenu() {
             </ItemLink>
           </li>
           <li>
-            <ItemLink onClick={handleClick} to="/portfolio">
+            <ItemLink onClick={handleClick} to="/statistics">
               <img src={Graphic} alt="Graphic" />
             </ItemLink>
           </li>
