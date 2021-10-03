@@ -36,7 +36,6 @@ const Home = () => {
   if (wheter === false) {
     return (
       <div className="home-principal">
-        <h2>Solar Science</h2>
         <img className="img-home" src={sun} alt="#" />
         <h3>Solar Irradiance</h3>
         <h3 style={{ fontSize: "5rem" }}>10%</h3>
