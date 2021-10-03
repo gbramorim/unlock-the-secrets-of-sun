@@ -37,9 +37,8 @@ const Home = () => {
     return (
       <div className="home-principal">
         <h2>Solar Science</h2>
-        <h3>xxxxxxxxxxxxxxxx</h3>
         <img className="img-home" src={sun} alt="#" />
-        <h3>blablabla radiação</h3>
+        <h3>Solar Irradiance</h3>
         <h3 style={{ fontSize: "5rem" }}>10%</h3>
       </div>
     );
