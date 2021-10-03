@@ -120,7 +120,18 @@ function HamburgerMenu() {
         <Icon clicked={click}>&nbsp;</Icon>
       </MenuLabel>
       <NavBackground clicked={click}>&nbsp;</NavBackground>
-
+      <h2
+        style={{
+          fontFamily: "SolarRegular",
+          display: "flex",
+          placeContent: "center",
+          marginTop: "52px",
+          fontSize: "24px",
+          color: "white",
+        }}
+      >
+        Solar Science
+      </h2>
       <Navigation clicked={click}>
         <List>
           <li>

@@ -17,6 +17,7 @@ const Blog = () => {
           display: "flex",
           justifyContent: "center",
           marginLeft: 50,
+          marginTop: 50,
           color: "white",
         }}
       >
