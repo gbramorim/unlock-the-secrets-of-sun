@@ -1,0 +1,25 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+
+  background: #242c4c;
+
+  color: #effe92;
+}
+
+.pages {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .pages {
+    font-size: 2.5rem;
+  }
+}
