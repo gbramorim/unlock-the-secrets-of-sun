@@ -1,6 +1,41 @@
 import React, { useState } from "react";
 import "../css/Dropdown.css";
 import api from "../../services/api";
+import { CircleSlider } from "react-circle-slider";
+import { Line } from "react-chartjs-2";
+
+const LineChart = () => {
+  return (
+    <div>
+      <Line
+        data={{
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "kW-hr/m²",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: ["yellow"],
+            },
+          ],
+        }}
+        height={400}
+        width={300}
+        options={{
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        }}
+      />
+    </div>
+  );
+};
 
 const Portfolio = () => {
   let periodo = ""
@@ -9,6 +44,8 @@ const Portfolio = () => {
   let latitude
   let longitude
   let value = 1
+  let keys = []
+  let values = []
 
   function setPeriodo(param) {
     periodo = param;
@@ -38,6 +75,10 @@ const Portfolio = () => {
       }
     }).then((response) => {
       console.log(response)
+      keys = Object.keys(response.data)
+      values = Object.values(response.data)
+      console.log(keys)
+      console.log(values)
     })
   }
 
@@ -59,6 +100,9 @@ const Portfolio = () => {
         </li>
       </ul>
       <button onClick={() => getValores()}class="pure-material-button-contained">Submit</button>
+      {/* {<CircleSlider value={value} />} */}
+
+      <LineChart />
       </div>
   );
 };
