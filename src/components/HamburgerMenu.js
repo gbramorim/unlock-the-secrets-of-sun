@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+import Avatar from "../assets/avatar.png";
+import Calculator from "../assets/calculator.png";
+import Graphic from "../assets/graphic.png";
+import Map from "../assets/map.png";
+
 const COLORS = {
   primaryDark: "#115b4c",
   primaryLight: "#B6EDC8",
 };
 
 const MenuLabel = styled.label`
-  background-color: ${COLORS.primaryLight};
   position: fixed;
   top: 3rem;
   right: 31rem;
@@ -17,7 +21,6 @@ const MenuLabel = styled.label`
   width: 7rem;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 1rem 3rem rgba(182, 237, 200, 0.3);
   text-align: center;
 `;
 
@@ -25,7 +28,6 @@ const NavBackground = styled.div`
   position: fixed;
   top: 3.5rem;
   right: 31.5rem;
-  background-image: radial-gradient(#242c4c, #b6edc8);
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
@@ -36,7 +38,8 @@ const NavBackground = styled.div`
 
 const Icon = styled.span`
   position: relative;
-  background-color: ${(props) => (props.clicked ? "transparent" : "black")};
+  background-color: ${(props) => (props.clicked ? "transparent" : "white")};
+  color: white;
   width: 3rem;
   height: 2px;
   display: inline-block;
@@ -46,7 +49,7 @@ const Icon = styled.span`
   &::before,
   &::after {
     content: "";
-    background-color: black;
+    background-color: white;
     width: 3rem;
     height: 2px;
     display: inline-block;
@@ -90,10 +93,9 @@ const Navigation = styled.nav`
 const List = styled.ul`
   position: absolute;
   list-style: none;
-  top: 50%;
-  left: 50%;
+  top: 35%;
+  left: 51%;
   transform: translate(-50%, -50%);
-  text-align: center;
   width: 100%;
 `;
 const ItemLink = styled(NavLink)`
@@ -104,20 +106,8 @@ const ItemLink = styled(NavLink)`
   color: ${COLORS.primaryLight};
   padding: 1rem 2rem;
 
-  background-image: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 50%,
-    #fff 50%
-  );
-  background-size: 240%;
-  transition: all 0.4s;
-
-  &:hover,
-  &:active {
-    background-position: 100%;
-    color: ${COLORS.primaryDark};
-    transform: translateX(1rem);
+  img {
+    height: 75px !important;
   }
 `;
 
@@ -135,27 +125,22 @@ function HamburgerMenu() {
         <List>
           <li>
             <ItemLink onClick={handleClick} to="/">
-              Home
+              <img src={Avatar} alt="Profile" />
             </ItemLink>
           </li>
           <li>
             <ItemLink onClick={handleClick} to="/about">
-              About
+              <img src={Calculator} alt="Calculator" />
             </ItemLink>
           </li>
           <li>
             <ItemLink onClick={handleClick} to="/portfolio">
-              Portfolio
+              <img src={Graphic} alt="Graphic" />
             </ItemLink>
           </li>
           <li>
             <ItemLink onClick={handleClick} to="/blog">
-              Blog
-            </ItemLink>
-          </li>
-          <li>
-            <ItemLink onClick={handleClick} to="/contact">
-              Contact Us
+              <img src={Map} alt="Map" />
             </ItemLink>
           </li>
         </List>
