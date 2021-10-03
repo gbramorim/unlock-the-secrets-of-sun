@@ -1,0 +1,8 @@
+.profile-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-principal img {
+  height: 15rem;
+}

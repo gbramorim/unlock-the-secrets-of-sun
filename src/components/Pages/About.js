@@ -1,9 +1,13 @@
 import React from "react";
+import Avatar from "../../assets/avatar.png";
+import "../css/Profile.css";
 
 const About = () => {
   return (
     <>
-      <h1>About</h1>
+      <div className="profile-principal">
+        <img src={Avatar} alt="Avatar" />
+      </div>
     </>
   );
 };
