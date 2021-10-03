@@ -4,16 +4,17 @@ import api from "../../services/api";
 import { CircleSlider } from "react-circle-slider";
 import { Line } from "react-chartjs-2";
 
-const LineChart = () => {
+const LineChart = (chave, valor) => {
+  console.log("Logando chave", chave)
   return (
     <div>
       <Line
         data={{
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: chave.chave,
           datasets: [
             {
               label: "kW-hr/m²",
-              data: [12, 19, 3, 5, 2, 3],
+              data: chave.valor,
               backgroundColor: ["yellow"],
             },
           ],
@@ -21,7 +22,10 @@ const LineChart = () => {
         height={400}
         width={300}
         options={{
+          borderColor: 'yellow',
+          tension: 0,
           maintainAspectRatio: false,
+          bezierCurve: false,
           scales: {
             yAxes: [
               {
@@ -46,21 +50,23 @@ const Portfolio = () => {
   let value = 1
   let keys = []
   let values = []
+  const [chave, setChave] = useState([])
+  const [valor, setValor] = useState([])
 
   function setPeriodo(param) {
     periodo = param;
-    console.log(periodo);
+    // console.log(periodo);
     var today = new Date();
     var month = today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
     var day = today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
     ano = today.getFullYear()
     date = "" + ano + month + day;
-    console.log(date)
+    // console.log(date)
     navigator.geolocation.getCurrentPosition(function(position) {
       latitude = position.coords.latitude
       longitude = position.coords.longitude
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
+      // console.log("Latitude is :", position.coords.latitude);
+      // console.log("Longitude is :", position.coords.longitude);
     });
   }
 
@@ -74,11 +80,13 @@ const Portfolio = () => {
         mes_desejado: '05',
       }
     }).then((response) => {
-      console.log(response)
+      // console.log(response)
       keys = Object.keys(response.data)
       values = Object.values(response.data)
-      console.log(keys)
-      console.log(values)
+      setValor(values)
+      setChave(keys)
+      console.log(chave)
+      console.log(valor)
     })
   }
 
@@ -102,7 +110,7 @@ const Portfolio = () => {
       <button onClick={() => getValores()}class="pure-material-button-contained">Submit</button>
       {/* {<CircleSlider value={value} />} */}
 
-      <LineChart />
+      <LineChart chave={chave} valor={valor} />
       </div>
   );
 };
