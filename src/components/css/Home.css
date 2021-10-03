@@ -1,0 +1,20 @@
+.home-principal {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 35px;
+}
+
+.home-principal h2 {
+  font-family: "SolarRegular";
+  color: white;
+}
+
+.home-principal h3 {
+  color: white;
+}
+
+.img-home {
+  height: 24rem;
+  margin-top: 20rem;
+}
