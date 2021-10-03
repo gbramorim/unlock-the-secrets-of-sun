@@ -1,5 +1,5 @@
-import React from "react";
-import '../css/Dropdown.css'
+import React, { useState } from "react";
+import "../css/Dropdown.css";
 import api from "../../services/api";
 
 const Portfolio = () => {
@@ -11,8 +11,13 @@ const Portfolio = () => {
   let value = 1
 
   function setPeriodo(param) {
-    periodo = param
-    console.log(periodo)
+    periodo = param;
+    console.log(periodo);
+    if (periodo !== "semanal" && periodo !== "tudo") {
+      setRenderPartial(true);
+    } else {
+      setRenderPartial(false);
+    }
     var today = new Date();
     var month = today.getMonth() >= 10 ? "" + today.getMonth() : "0" + today.getMonth();
     var day = today.getDate() >= 10 ? "" + today.getDate() : "0" + today.getDate();
@@ -42,20 +47,24 @@ const Portfolio = () => {
   }
 
   return (
-    <>
-    <body>
-      <div class="container">
-      <label class="dropdown" for="menu">Temporalidade</label>
+    <div className="container">
+      <label className="dropdown" for="menu">
+        Temporalidade
+      </label>
       <input type="checkbox" id="menu"></input>
       <ul id="drop">
-        <li onClick={() => setPeriodo("semanal")}><a>Semanal</a></li>
-        <li onClick={() => setPeriodo("mensal")}><a>Mensal</a></li>
-        <li onClick={() => setPeriodo("tudo")}><a>Tudo</a></li>
+        <li onClick={() => setPeriodo("semanal")}>
+          <a>Semanal</a>
+        </li>
+        <li onClick={() => setPeriodo("mensal")}>
+          <a>Mensal</a>
+        </li>
+        <li onClick={() => setPeriodo("tudo")}>
+          <a>Tudo</a>
+        </li>
       </ul>
       <button onClick={() => getValores()}class="pure-material-button-contained">Submit</button>
       </div>
-    </body>
-    </>
   );
 };
 
