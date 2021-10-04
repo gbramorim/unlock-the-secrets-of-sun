@@ -150,7 +150,7 @@ function HamburgerMenu() {
             </ItemLink>
           </li>
           <li>
-            <ItemLink onClick={handleClick} to="/blog">
+            <ItemLink onClick={handleClick} to="/map">
               <img src={Map} alt="Map" />
             </ItemLink>
           </li>

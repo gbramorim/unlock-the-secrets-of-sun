@@ -107,9 +107,17 @@ const Portfolio = () => {
 
   return (
     <div className="container">
-      <label className="dropdown" for="menu">
-        Temporalidade
-      </label>
+      <div>
+        <label className="dropdown" for="menu">
+          Temporalidade
+        </label>
+        <button
+          onClick={() => getValores()}
+          class="pure-material-button-contained"
+        >
+          🡆
+        </button>
+      </div>
       <input type="checkbox" id="menu"></input>
       <ul id="drop">
         <li onClick={() => setPeriodo("semanal")}>
@@ -122,12 +130,6 @@ const Portfolio = () => {
           <a>Tudo</a>
         </li>
       </ul>
-      <button
-        onClick={() => getValores()}
-        class="pure-material-button-contained"
-      >
-        Submit
-      </button>
       {/* {<CircleSlider value={value} />} */}
 
       <LineChart chave={chave} valor={valor} />

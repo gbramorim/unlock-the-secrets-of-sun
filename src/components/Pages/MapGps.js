@@ -1,7 +1,7 @@
 import React from "react";
 import Leaflet from "../../assets/leaflet.png";
 
-const Blog = () => {
+const MapGps = () => {
   let latitude;
   let longitude;
 
@@ -43,4 +43,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default MapGps;
