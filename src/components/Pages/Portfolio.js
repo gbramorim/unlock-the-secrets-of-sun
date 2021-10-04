@@ -3,6 +3,10 @@ import "../css/Dropdown.css";
 import api from "../../services/api";
 import { CircleSlider } from "react-circle-slider";
 import { Line } from "react-chartjs-2";
+import { defaults } from 'react-chartjs-2'
+
+defaults.color = "white"
+
 
 const LineChart = (chave, valor) => {
   console.log("Logando chave", chave);
@@ -22,7 +26,13 @@ const LineChart = (chave, valor) => {
         height={400}
         width={300}
         options={{
-          borderColor: "yellow",
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'white'
+            }
+          },
+          borderColor: 'yellow',
           tension: 0,
           maintainAspectRatio: false,
           bezierCurve: false,
@@ -30,6 +40,7 @@ const LineChart = (chave, valor) => {
             yAxes: [
               {
                 ticks: {
+                  fontColor: "red",
                   beginAtZero: true,
                 },
               },
