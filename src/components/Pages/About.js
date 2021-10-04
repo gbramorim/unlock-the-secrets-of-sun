@@ -23,7 +23,12 @@ const About = () => {
           <span>State</span>
           <input type="text" placeholder=" XXXX" />
         </div>
-        <button class="pure-material-button-contained">Save changes</button>
+        <button
+          style={{ marginTop: 30 }}
+          class="pure-material-button-contained"
+        >
+          Save changes
+        </button>
       </div>
     </>
   );

@@ -11,7 +11,7 @@ const MapGps = () => {
   });
 
   return (
-    <div style={{ marginTop: 200 }}>
+    <div style={{ marginTop: 100 }}>
       <div
         style={{
           display: "flex",

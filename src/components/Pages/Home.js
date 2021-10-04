@@ -29,6 +29,13 @@ const Home = () => {
     return wheter;
   }
 
+  function getDateHour() {
+    let newDate = new Date();
+    let hour = `${newDate.getHours()}:${newDate.getMinutes()}`;
+
+    return hour;
+  }
+
   useEffect(() => {
     getHourOfDay();
   });
@@ -36,9 +43,16 @@ const Home = () => {
   if (wheter === false) {
     return (
       <div className="home-principal">
-        <img className="img-home" src={sun} alt="#" />
-        <h3>Solar Irradiance</h3>
-        <h3 style={{ fontSize: "5rem" }}>10%</h3>
+        <h3 style={{ fontSize: "8rem" }}>{getDateHour()}</h3>
+        <img
+          style={{ marginTop: "5rem" }}
+          className="img-home"
+          src={sun}
+          alt="Sun"
+        />
+        <h3 style={{ marginTop: 30 }}>Solar Irradiance</h3>
+        <h3 style={{ fontSize: "8rem" }}>70%</h3>
+        <h3 style={{ fontSize: "2rem" }}>Amount: $383,23</h3>
       </div>
     );
   } else if (wheter === true) {
@@ -46,7 +60,6 @@ const Home = () => {
       <div className="home-principal">
         <h2>Solar Science</h2>
         <img className="img-home" src={sun} alt="#" />
-        <h3>blablabla radiação</h3>
         <h3 style={{ fontSize: "5rem" }}>10%</h3>
       </div>
     );

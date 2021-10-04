@@ -136,12 +136,12 @@ function HamburgerMenu() {
         <List>
           <li>
             <ItemLink onClick={handleClick} to="/">
-              <img src={Avatar} alt="Profile" />
+              <img src={Calculator} alt="Calculator" />
             </ItemLink>
           </li>
           <li>
             <ItemLink onClick={handleClick} to="/about">
-              <img src={Calculator} alt="Calculator" />
+              <img src={Avatar} alt="Profile" />
             </ItemLink>
           </li>
           <li>
